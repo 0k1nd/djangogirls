@@ -80,6 +80,70 @@
         "documentation": {}
     },
     {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
         "label": "models",
         "importPath": "django.db",
         "description": "django.db",
@@ -319,6 +383,42 @@
         "documentation": {}
     },
     {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "blog.migrations.0004_alter_post_image",
+        "description": "blog.migrations.0004_alter_post_image",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('blog', '0003_post_image'),\n    ]\n    operations = [\n        migrations.AlterField(\n            model_name='post',\n            name='image',\n            field=models.ImageField(upload_to='uploads/'),\n        ),",
+        "detail": "blog.migrations.0004_alter_post_image",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "blog.migrations.0005_alter_post_image",
+        "description": "blog.migrations.0005_alter_post_image",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('blog', '0004_alter_post_image'),\n    ]\n    operations = [\n        migrations.AlterField(\n            model_name='post',\n            name='image',\n            field=models.ImageField(blank=True, null=True, upload_to=''),\n        ),",
+        "detail": "blog.migrations.0005_alter_post_image",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "blog.migrations.0006_alter_post_image",
+        "description": "blog.migrations.0006_alter_post_image",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('blog', '0005_alter_post_image'),\n    ]\n    operations = [\n        migrations.AlterField(\n            model_name='post',\n            name='image',\n            field=models.ImageField(blank=True, default='path/to/my/default/image.jpg', null=True, upload_to=''),\n        ),",
+        "detail": "blog.migrations.0006_alter_post_image",
+        "documentation": {}
+    },
+    {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "blog.migrations.0007_alter_post_image",
+        "description": "blog.migrations.0007_alter_post_image",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('blog', '0006_alter_post_image'),\n    ]\n    operations = [\n        migrations.AlterField(\n            model_name='post',\n            name='image',\n            field=models.ImageField(blank=True, null=True, upload_to=''),\n        ),",
+        "detail": "blog.migrations.0007_alter_post_image",
+        "documentation": {}
+    },
+    {
         "label": "BlogConfig",
         "kind": 6,
         "importPath": "blog.apps",
@@ -332,7 +432,7 @@
         "kind": 6,
         "importPath": "blog.forms",
         "description": "blog.forms",
-        "peekOfCode": "class PostForm(forms.ModelForm):\n    class Meta:\n        model = Post\n        fields = ('title', 'text','image')",
+        "peekOfCode": "class PostForm(forms.ModelForm):\n    class Meta:\n        model = Post\n        fields = ('title', 'text', 'image')",
         "detail": "blog.forms",
         "documentation": {}
     },
@@ -341,7 +441,7 @@
         "kind": 6,
         "importPath": "blog.models",
         "description": "blog.models",
-        "peekOfCode": "class Post(models.Model):\n    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)\n    title = models.CharField(max_length=200)\n    text = models.TextField()\n    image = models.ImageField(upl)\n    created_date = models.DateTimeField(default=timezone.now)\n    published_date = models.DateTimeField(blank=True, null=True)\n    def publish(self):\n        self.published_date = timezone.now()\n        self.save()",
+        "peekOfCode": "class Post(models.Model):\n    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)\n    title = models.CharField(max_length=200)\n    text = models.TextField()\n    image = models.ImageField(blank=True, null=True)\n    created_date = models.DateTimeField(default=timezone.now)\n    published_date = models.DateTimeField(blank=True, null=True)\n    def publish(self):\n        self.published_date = timezone.now()\n        self.save()",
         "detail": "blog.models",
         "documentation": {}
     },
@@ -377,7 +477,7 @@
         "kind": 2,
         "importPath": "blog.views",
         "description": "blog.views",
-        "peekOfCode": "def post_detail(request, pk):\n    post = get_object_or_404(Post, pk=pk)\n    return render(request, 'blog/post_detail.html', {'post': post})\ndef post_new(request):\n    form = PostForm()\n    return render(request, 'blog/post_edit.html', {'form': form})\ndef post_new(request):\n    if request.method == \"POST\":\n        form = PostForm(request.POST)\n        if form.is_valid():",
+        "peekOfCode": "def post_detail(request, pk):\n    post = get_object_or_404(Post, pk=pk)\n    return render(request, 'blog/post_detail.html', {'post': post})\ndef post_new(request):\n    form = PostForm()\n    return render(request, 'blog/post_edit.html', {'form': form})\ndef post_new(request):\n    if request.method == \"POST\":\n        form = PostForm(request.POST, request.FILES)\n        if form.is_valid():",
         "detail": "blog.views",
         "documentation": {}
     },
@@ -386,7 +486,7 @@
         "kind": 2,
         "importPath": "blog.views",
         "description": "blog.views",
-        "peekOfCode": "def post_new(request):\n    form = PostForm()\n    return render(request, 'blog/post_edit.html', {'form': form})\ndef post_new(request):\n    if request.method == \"POST\":\n        form = PostForm(request.POST)\n        if form.is_valid():\n            post = form.save(commit=False)\n            post.author = request.user\n            post.published_date = timezone.now()",
+        "peekOfCode": "def post_new(request):\n    form = PostForm()\n    return render(request, 'blog/post_edit.html', {'form': form})\ndef post_new(request):\n    if request.method == \"POST\":\n        form = PostForm(request.POST, request.FILES)\n        if form.is_valid():\n            post = form.save(commit=False)\n            post.author = request.user\n            post.published_date = timezone.now()",
         "detail": "blog.views",
         "documentation": {}
     },
@@ -395,7 +495,7 @@
         "kind": 2,
         "importPath": "blog.views",
         "description": "blog.views",
-        "peekOfCode": "def post_new(request):\n    if request.method == \"POST\":\n        form = PostForm(request.POST)\n        if form.is_valid():\n            post = form.save(commit=False)\n            post.author = request.user\n            post.published_date = timezone.now()\n            post.save()\n            return redirect('post_detail', pk=post.pk)\n    else:",
+        "peekOfCode": "def post_new(request):\n    if request.method == \"POST\":\n        form = PostForm(request.POST, request.FILES)\n        if form.is_valid():\n            post = form.save(commit=False)\n            post.author = request.user\n            post.published_date = timezone.now()\n            post.save()\n            return redirect('post_detail', pk=post.pk)\n    else:",
         "detail": "blog.views",
         "documentation": {}
     },

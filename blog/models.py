@@ -7,7 +7,7 @@ class Post(models.Model):
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
     text = models.TextField()
-    image = models.ImageField(upl)
+    image = models.ImageField(blank=True, null=True)
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
     
@@ -23,7 +23,6 @@ class Item(models.Model):
     name = models.CharField(max_length=1000)
     body = models.TextField()
     date = models.DateTimeField(blank=timezone.now)
-    
     
     def publish(self):
         self.published_date = timezone.now()
