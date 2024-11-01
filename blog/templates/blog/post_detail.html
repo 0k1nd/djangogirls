@@ -12,8 +12,12 @@
         {% endif %}
         <h1>{{ post.title }}</h1>
         <p>{{ post.text|linebreaksbr }}</p>
+<<<<<<< HEAD
         {% if post.image %}
             <img src="{{ post.image.url }}" alt=" ---- ">
         {% endif %}
+=======
+        <img src="{{ post.image.url }}" alt=" ">
+>>>>>>> 9e03a55796a976fc423e374eac8b7f1e44657d45
     </div>
 {% endblock %}

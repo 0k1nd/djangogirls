@@ -7,7 +7,11 @@ class Post(models.Model):
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
     text = models.TextField()
+<<<<<<< HEAD
     image = models.ImageField(blank=True, null=True)
+=======
+    image = models.ImageField(upl)
+>>>>>>> 9e03a55796a976fc423e374eac8b7f1e44657d45
     created_date = models.DateTimeField(default=timezone.now)
     published_date = models.DateTimeField(blank=True, null=True)
     
