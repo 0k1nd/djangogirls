@@ -8,14 +8,16 @@
             </div>
             <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
             <p>{{ post.text|linebreaksbr }}</p>
-<<<<<<< HEAD
             {% if post.image %}
                 <img src="{{ post.image.url }}" alt=" ---- ">
             {% endif %}
-            
-=======
-            <img src="{{ post.image.url }}" alt=" ">
->>>>>>> 9e03a55796a976fc423e374eac8b7f1e44657d45
+
+            {%if post.video%}
+                <video width="450" height="300" controls="controls">
+                    <source src="{{ post.video.url }}" type='video/webm; codecs="vp8, vorbis"' >
+                    <source src="{{ post.video.url }}" type='video/mp4; codecs="vp8, vorbis"' >
+                </video>
+            {%endif%}
         </div>
     {% endfor %}
 {% endblock %}

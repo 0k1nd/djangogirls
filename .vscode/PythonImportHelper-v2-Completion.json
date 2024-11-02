@@ -144,6 +144,22 @@
         "documentation": {}
     },
     {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
         "label": "models",
         "importPath": "django.db",
         "description": "django.db",
@@ -419,6 +435,15 @@
         "documentation": {}
     },
     {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "blog.migrations.0008_post_video",
+        "description": "blog.migrations.0008_post_video",
+        "peekOfCode": "class Migration(migrations.Migration):\n    dependencies = [\n        ('blog', '0007_alter_post_image'),\n    ]\n    operations = [\n        migrations.AddField(\n            model_name='post',\n            name='video',\n            field=models.FileField(blank=True, null=True, upload_to=''),\n        ),",
+        "detail": "blog.migrations.0008_post_video",
+        "documentation": {}
+    },
+    {
         "label": "BlogConfig",
         "kind": 6,
         "importPath": "blog.apps",
@@ -432,7 +457,7 @@
         "kind": 6,
         "importPath": "blog.forms",
         "description": "blog.forms",
-        "peekOfCode": "class PostForm(forms.ModelForm):\n    class Meta:\n        model = Post\n<<<<<<< HEAD\n        fields = ('title', 'text', 'image')\n=======\n        fields = ('title', 'text','image')\n>>>>>>> 9e03a55796a976fc423e374eac8b7f1e44657d45",
+        "peekOfCode": "class PostForm(forms.ModelForm):\n    class Meta:\n        model = Post\n        fields = ('title', 'text', 'image', 'video')",
         "detail": "blog.forms",
         "documentation": {}
     },
@@ -441,7 +466,7 @@
         "kind": 6,
         "importPath": "blog.models",
         "description": "blog.models",
-        "peekOfCode": "class Post(models.Model):\n    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)\n    title = models.CharField(max_length=200)\n    text = models.TextField()\n<<<<<<< HEAD\n    image = models.ImageField(blank=True, null=True)\n=======\n    image = models.ImageField(upl)\n>>>>>>> 9e03a55796a976fc423e374eac8b7f1e44657d45\n    created_date = models.DateTimeField(default=timezone.now)",
+        "peekOfCode": "class Post(models.Model):\n    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)\n    title = models.CharField(max_length=200)\n    text = models.TextField()\n    image = models.ImageField(blank=True, null=True)\n    video = models.FileField(blank=True, null=True)\n    created_date = models.DateTimeField(default=timezone.now)\n    published_date = models.DateTimeField(blank=True, null=True)\n    def publish(self):\n        self.published_date = timezone.now()",
         "detail": "blog.models",
         "documentation": {}
     },
